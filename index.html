@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-    <title>Frontend Mentor | Blog preview card</title>
+    <title>Frontend Mentor | Social links profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -27,219 +28,251 @@
       }
 
       :root {
-        --yellow: hsl(47, 88%, 63%);
+        --green: hsl(75, 94%, 57%);
         --white: hsl(0, 0%, 100%);
-        --gray-500: hsl(0, 0%, 42%);
-        --gray-950: hsl(0, 0%, 7%);
+        --grey-700: hsl(0, 0%, 20%);
+        --grey-800: hsl(0, 0%, 12%);
+        --grey-900: hsl(0, 0%, 8%);
       }
 
       body {
-        font-family: "Figtree", sans-serif;
-        background-color: var(--yellow);
+        font-family: "Inter", sans-serif;
+        background-color: var(--grey-900);
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem;
+        padding: 24px;
+      }
+
+      .profile-card {
+        background-color: var(--grey-800);
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 456px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .profile-image {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        margin: 0 auto 24px;
+        overflow: hidden;
+        background-color: var(--grey-700);
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-name {
+        color: var(--white);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .profile-location {
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+
+      .profile-bio {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 40px;
         line-height: 1.5;
       }
 
-      .blog-card {
-        background-color: var(--white);
-        border-radius: 20px;
-        padding: 24px;
-        max-width: 384px;
-        width: 100%;
-        border: 1px solid var(--gray-950);
-        box-shadow: 8px 8px 0px 0px var(--gray-950);
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .social-link {
+        display: block;
+        background-color: var(--grey-700);
+        color: var(--white);
+        text-decoration: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
         transition: all 0.3s ease;
         cursor: pointer;
       }
 
-      .blog-card:hover {
-        box-shadow: 16px 16px 0px 0px var(--gray-950);
-        transform: translate(-8px, -8px);
+      .social-link:hover {
+        background-color: var(--green);
+        color: var(--grey-800);
+        transform: translateY(-2px);
       }
 
-      .blog-card:focus-within {
-        outline: 2px solid var(--gray-950);
-        outline-offset: 4px;
+      .social-link:focus {
+        outline: 2px solid var(--green);
+        outline-offset: 2px;
       }
 
-      .card-image {
-        width: 100%;
-        height: 200px;
-        border-radius: 10px;
-        margin-bottom: 24px;
-        overflow: hidden;
-        background: linear-gradient(135deg, var(--yellow) 0%, #f4d03f 100%);
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .card-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("./assets/images/illustration-article.svg") center/cover
-          no-repeat;
-      }
-
-      .learning-tag {
-        display: inline-block;
-        background-color: var(--yellow);
-        color: var(--gray-950);
-        padding: 4px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 800;
-        margin-bottom: 12px;
-        letter-spacing: 0.5px;
-      }
-
-      .publish-date {
-        color: var(--gray-500);
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 12px;
-      }
-
-      .card-title {
-        color: var(--gray-950);
-        font-size: 24px;
-        font-weight: 800;
-        margin-bottom: 12px;
-        line-height: 1.3;
-        transition: color 0.2s ease;
-      }
-
-      .blog-card:hover .card-title {
-        color: var(--yellow);
-      }
-
-      .card-description {
-        color: var(--gray-500);
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 24px;
-        line-height: 1.5;
-      }
-
-      .author {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .author-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #e74c3c, #f39c12);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        color: var(--white);
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-
-      .author-name {
-        color: var(--gray-950);
-        font-size: 14px;
-        font-weight: 800;
-      }
-
-      /* Focus states for accessibility */
-      .blog-card:focus {
-        outline: 2px solid var(--gray-950);
-        outline-offset: 4px;
+      .social-link:active {
+        transform: translateY(0);
       }
 
       /* Mobile responsive adjustments */
       @media (max-width: 375px) {
-        .blog-card {
-          padding: 20px;
+        .profile-card {
+          padding: 32px 24px;
           max-width: 327px;
         }
 
-        .card-title {
+        .profile-name {
           font-size: 22px;
         }
 
-        .card-description {
-          font-size: 15px;
+        .social-link {
+          padding: 14px;
         }
       }
 
       /* Desktop responsive adjustments */
-      @media (min-width: 1440px) {
-        .blog-card {
-          max-width: 384px;
+      @media (min-width: 768px) {
+        .profile-card {
+          padding: 48px;
         }
       }
 
-      /* Enhanced hover effects */
-      @media (hover: hover) {
-        .blog-card:hover .card-image {
-          transform: scale(1.02);
-          transition: transform 0.3s ease;
+      /* Enhanced focus states for keyboard navigation */
+      .social-link:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 2px;
+      }
+
+      /* Smooth animations */
+      .social-link {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .social-link:hover::before {
+        left: 100%;
+      }
+
+      /* Accessibility improvements */
+      @media (prefers-reduced-motion: reduce) {
+        .social-link {
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .social-link:hover {
+          transform: none;
+        }
+
+        .social-link::before {
+          display: none;
         }
       }
 
-      /* Active state */
-      .blog-card:active {
-        transform: translate(0, 0);
-        box-shadow: 4px 4px 0px 0px var(--gray-950);
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .social-link {
+          border: 1px solid var(--white);
+        }
+
+        .social-link:hover {
+          border-color: var(--grey-800);
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <article
-        class="blog-card"
-        aria-label="Read article: HTML & CSS foundations by Greg Hooper"
-      >
-        <div class="card-image" aria-hidden="true"></div>
-
-        <div class="learning-tag-row">
-          <div class="learning-tag">Learning</div>
-        </div>
-        <div class="publish-date-row">
-          <time class="publish-date" datetime="2023-12-21"
-            >Published 21 Dec 2023</time
-          >
-        </div>
-
-        <h1 class="card-title">HTML & CSS foundations</h1>
-
-        <p class="card-description">
-          These languages are the backbone of every website, defining structure,
-          content, and presentation.
-        </p>
-
-        <div class="author">
+      <div class="profile-card">
+        <div class="profile-image">
           <img
-            class="author-avatar"
-            src="./assets/images/image-avatar.webp"
-            alt="Greg Hooper's avatar"
+            src="./assets/images/avatar-jessica.jpeg"
+            alt="Jessica Randall profile picture"
           />
-          <span class="author-name">Greg Hooper</span>
         </div>
-      </article>
+
+        <h1 class="profile-name">Jessica Randall</h1>
+
+        <p class="profile-location">London, United Kingdom</p>
+
+        <p class="profile-bio">"Front-end developer and avid reader."</p>
+
+        <nav class="social-links" aria-label="Jessica's social media profiles">
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's GitHub profile"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Frontend Mentor profile"
+          >
+            Frontend Mentor
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's LinkedIn profile"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Twitter profile"
+          >
+            Twitter
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Instagram profile"
+          >
+            Instagram
+          </a>
+        </nav>
+      </div>
     </main>
     <footer>
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="https://jaideepghosh.com">Jaideep Ghosh</a>.
+        >. Coded by <a href="http://jaideepghosh.com">Jaideep Ghosh</a>.
       </div>
     </footer>
   </body>
