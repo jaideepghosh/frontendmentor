@@ -1,0 +1,11 @@
+{
+  "name": "frontendmentor-qr-code-component",
+  "version": "1.0.0",
+  "description": "QR Code Component static site for Frontend Mentor challenge.",
+  "scripts": {
+    "deploy": "gh-pages -d QR-code-component"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}
