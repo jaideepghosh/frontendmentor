@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <title>Frontend Mentor | QR code component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        background-color: hsl(212, 45%, 89%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .qr-card {
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.05);
+        max-width: 320px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .qr-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 24px;
+      }
+
+      .qr-title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: hsl(218, 44%, 22%);
+        line-height: 1.2;
+        margin-bottom: 16px;
+        padding: 0 16px;
+      }
+
+      .qr-description {
+        font-size: 0.9375rem;
+        font-weight: 400;
+        color: hsl(220, 15%, 55%);
+        line-height: 1.4;
+        padding: 0 16px;
+        margin-bottom: 8px;
+      }
+
+      .attribution {
+        display: none;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 375px) {
+        .qr-card {
+          margin: 0 24px;
+          max-width: 280px;
+        }
+
+        .qr-title {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="qr-card">
+      <img src="./images/image-qr-code.png" alt="QR Code" class="qr-image" />
+
+      <h1 class="qr-title">
+        Improve your front-end skills by building projects
+      </h1>
+
+      <p class="qr-description">
+        Scan the QR code to visit Frontend Mentor and take your coding skills to
+        the next level
+      </p>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://jaideepghosh.com">Jaideep Ghosh</a>.
+    </div>
+  </body>
+</html>
