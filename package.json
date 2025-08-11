@@ -4,7 +4,8 @@
   "description": "QR Code Component static site for Frontend Mentor challenge.",
   "scripts": {
     "deploy:qr-code-component": "gh-pages -d QR-code-component",
-    "deploy:blog-preview-card": "gh-pages -d blog-preview-card"
+    "deploy:blog-preview-card": "gh-pages -d blog-preview-card",
+    "deploy:social-links-profile-main": "gh-pages -d social-links-profile-main"
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"

@@ -1,34 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Social links profile</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Social links profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .attribution {
+        display: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      :root {
+        --green: hsl(75, 94%, 57%);
+        --white: hsl(0, 0%, 100%);
+        --grey-700: hsl(0, 0%, 20%);
+        --grey-800: hsl(0, 0%, 12%);
+        --grey-900: hsl(0, 0%, 8%);
+      }
 
-  Jessica Randall
-  London, United Kingdom
-  "Front-end developer and avid reader."
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--grey-900);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+      }
 
-  GitHub
-  Frontend Mentor
-  LinkedIn
-  Twitter
-  Instagram
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      .profile-card {
+        background-color: var(--grey-800);
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 456px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .profile-image {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        margin: 0 auto 24px;
+        overflow: hidden;
+        background-color: var(--grey-700);
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-name {
+        color: var(--white);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .profile-location {
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+
+      .profile-bio {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        line-height: 1.5;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .social-link {
+        display: block;
+        background-color: var(--grey-700);
+        color: var(--white);
+        text-decoration: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .social-link:hover {
+        background-color: var(--green);
+        color: var(--grey-800);
+        transform: translateY(-2px);
+      }
+
+      .social-link:focus {
+        outline: 2px solid var(--green);
+        outline-offset: 2px;
+      }
+
+      .social-link:active {
+        transform: translateY(0);
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 375px) {
+        .profile-card {
+          padding: 32px 24px;
+          max-width: 327px;
+        }
+
+        .profile-name {
+          font-size: 22px;
+        }
+
+        .social-link {
+          padding: 14px;
+        }
+      }
+
+      /* Desktop responsive adjustments */
+      @media (min-width: 768px) {
+        .profile-card {
+          padding: 48px;
+        }
+      }
+
+      /* Enhanced focus states for keyboard navigation */
+      .social-link:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 2px;
+      }
+
+      /* Smooth animations */
+      .social-link {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .social-link:hover::before {
+        left: 100%;
+      }
+
+      /* Accessibility improvements */
+      @media (prefers-reduced-motion: reduce) {
+        .social-link {
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .social-link:hover {
+          transform: none;
+        }
+
+        .social-link::before {
+          display: none;
+        }
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .social-link {
+          border: 1px solid var(--white);
+        }
+
+        .social-link:hover {
+          border-color: var(--grey-800);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="profile-card">
+        <div class="profile-image">
+          <img
+            src="./assets/images/avatar-jessica.jpeg"
+            alt="Jessica Randall profile picture"
+          />
+        </div>
+
+        <h1 class="profile-name">Jessica Randall</h1>
+
+        <p class="profile-location">London, United Kingdom</p>
+
+        <p class="profile-bio">"Front-end developer and avid reader."</p>
+
+        <nav class="social-links" aria-label="Jessica's social media profiles">
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's GitHub profile"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Frontend Mentor profile"
+          >
+            Frontend Mentor
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's LinkedIn profile"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Twitter profile"
+          >
+            Twitter
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Visit Jessica's Instagram profile"
+          >
+            Instagram
+          </a>
+        </nav>
+      </div>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="http://jaideepghosh.com">Jaideep Ghosh</a>.
+      </div>
+    </footer>
+  </body>
 </html>
